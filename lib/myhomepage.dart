@@ -1,11 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:getxappdemo/service/delete_service.dart';
 import 'package:getxappdemo/service/service_user.dart';
-import 'package:getxappdemo/user.dart';
-import 'package:getxappdemo/userdetail.dart';
-import 'package:http/http.dart';
+import 'package:getxappdemo/model/user.dart';
 
 class MyHomePage extends StatelessWidget {
   @override
@@ -27,6 +23,7 @@ class MyHomePage extends StatelessWidget {
                     child: CircularProgressIndicator(),
                   );
           }),
+
     );
   }
 }
@@ -38,26 +35,17 @@ class ListUsers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // var test = getAllUsers().obs;
     return ListView.builder(
         itemCount: users.length,
         itemBuilder: (context, int) {
           return InkWell(
+              child: Card(
+            color: Colors.blue,
             child: ListTile(
-              onTap: () {
-                Get.defaultDialog(
-                    title: "test",
-                    middleText: "Bạn có muốn xóa không",
-                    onConfirm: () {
-                      deleteUser(users[int].id);
-                    },
-                    onCancel: () {});
-              },
-              onLongPress: () {
-                print('onlongpress');
-              },
               title: Text('${users[int].name}'),
             ),
-          );
+          ));
         });
   }
 }

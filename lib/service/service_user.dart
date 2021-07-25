@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
-import 'package:getxappdemo/user.dart';
+import 'package:getxappdemo/model/user.dart';
 import 'package:http/http.dart' as http;
 
 Future<List<User>> getAllUsers() async{
